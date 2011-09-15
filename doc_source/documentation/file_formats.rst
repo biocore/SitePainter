@@ -1,94 +1,60 @@
 .. _essential_files:
 
-===========
-Input Files
-===========
-
+=======================
 What Files Do I Need?
----------------------
+=======================
 
-1. FASTA (.fna or .fasta) or STOCKHOLM (.sto) file
-2. Basepair list (.txt) - Optional
-3. Feature List (.txt) - Optional
+1. An SVG image of the site broken down into paths or regions.
+2. Tab-delimited text file, such as the tab-delimited files produced by QIIME (e.g., summarized taxa, alpha- and beta-diversity files, etc.).
 
 
-File Format Details
--------------------
-
-These are general guidelines that apply to multiple files:
-
-1. Files should have proper file type suffix: E.g. '.fna' or '.fasta' for FASTA files, '.sto' for STOCKHOLM files, '.txt' for basepair and feature lists
-2. Do not use spaces in the filename. Use underscores or MixedCase instead. For example: :file:`some RNA.fna` is not allowed, should be :file:`some_RNA.fna` or :file:`SomeRNA.fna`
-
-FASTA File (.fna or .fasta) or STOCKHOLM (.sto)
+SVG Image (.svg)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The following shows 6 lines from a FASTA file.
-::
+The following shows an SVG image of the hand, where the image is comprised of paths.
 
-    >SS_cons
-    ..(((((((..((((...........)))).(((((.......))))).....(((((.......))))))))))))....
-    >1N77_C
-    --GGCCCCAUCGUCUAGC--GGUU-AGGACGCGGCCCUCUCAAGGCCGAAA-CGGGGGUUCGAUUCCCCCUGGGGUCACCA
-    >Aquifex_aeolicus|GE0001391.GluUUC
-    GCCCCCGUCGUCUAG--CCUGGCCUAGGACGCCGGCCUUUCACGCCGGAAA-CGCGGGUUCAAAUCCCGCCGGGGGUGCCA
-    
-The following shows an example BoulderALE stockholm file. The #=GS lines define the basepair list, the #=GF lines define the feature list and the #=GC line defines the consensus secondary structure.
-::
+.. image:: ../images/hand.svg
+  :align: center
+  :height: 400px
 
-    # STOCKHOLM 1.0
-    #=GF FT stem Acceptor_stem 2-8:70-76 C2D9F0
-    #=GF FT stem D_stem 11-14:26-29 C2D9F0
-    #=GF FT loop D_loop 15-25 F0E9AA
-    #=GS 1N77_C BP 0 70 cWW CC
-    #=GS 1N77_C BP 1 69 cWW CC
-    #=GS 1N77_C BP 2 68 cWW CC
-    1N77_C --GGCCCCAUCGUCUAGC--GGUU-AGGACGCGGCCCUCUCAAGGCCGAAA-CGGGGGUUCGAUUCCCCCUGGGGUCACCA
-    Aquifex_aeolicus|GE0001391.GluUUC GCCCCCGUCGUCUAG--CCUGGCCUAGGACGCCGGCCUUUCACGCCGGAAA-CGCGGGUUCAAAUCCCGCCGGGGGUGCCA
-    Pan_troglodytes_(chimpanzee)|GE0007962.GluCUC --CCCCUGGUAGUCUAGU--GGUU-AGGCUUUGCCACUCUCAGUGCCGCUG-CCUGGGUUGGAUUCCCAGUCACGUGACCA
-    #=GC SS_cons ..(((((((..((((...........)))).(((((.......))))).....(((((.......))))))))))))....
-    //
-    
-.. note::
-
-    The consensus secondary structure must contain only the dot-bracket annotation, since this version of BoulderALE does not support Wuss format (i.e. '<', or '>') or any other non-dot-bracket annotations.
-    
-
-Basepair List (.txt) - Optional
+Tab-delimited text file (.txt)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The basepair list is a tab-delimited list of nucleotide positions (column 1 defines the corresponding sequence) followed by the nucleotides pairing (NT1 and NT2, columns 2 and 3, respectively) and basepair family (column 4), which is based on the Leontis-Westhof basepair classification. The last column pertains to the PDB chains interacting, however; if the basepair list was not derived from a PDB structure, users can use NA for this column.  Users can download a list of basepairs for their favorite PDB structure from the FR3D website `FR3D website <http://rna.bgsu.edu/FR3D/>`_ or under the Basepairing Tab, they can download the basepair list.
+The metadata files are tab-delimited files, which are illustrated by the following examples of a summarized taxonomy and principal coordinates files produced from QIIME.
+
+Example 1: Summarized Taxonomy File
++++++++++++++++++++++++++++++++++++++
+
+The following is a summarized taxonomy file produced from QIIME. The first column contains the SampleID's which allow for correspondence to the paths of the SVG image, while the remaining columns consist of relative abundance of specific taxa in each region of the hand.
 
 ::
 
-    1N77_C	0	70	cWW	CC
-    1N77_C	1	69	cWW	CC
-    1N77_C	2	68	cWW	CC
-    1N77_C	3	67	cWW	CC
-    1N77_C	4	66	cWW	CC
-    1N77_C	5	65	cWW	CC
-    1N77_C	6	64	cWW	CC
-    1N77_C	7	13	tWH	CC
-    1N77_C	7	20	tsS	CC
+    SampleID Root;k__Bacteria;p__Acidobacteria Root;k__Bacteria;p__Actinobacteria Root;k__Bacteria;p__Bacteroidetes Root;k__Bacteria;p__Chloroflexi
+    Hand23   0.000245761                       0.762349472                        0.010076186                       0.00098304
+    Hand24   0                                 0.707366297                        0.012865792                       0.000756811
+    Hand25   0.000254453                       0.844020356                        0.005343511                       0.001017812
+    Hand26   0                                 0.842782152                        0.003674541                       0
+    Hand27   0.000412201                       0.819455894                        0.002061006                       0.000412201
+    Hand28   0.000236574                       0.814289094                        0.007097232                       0.000709723
+    Hand29   0.000546001                       0.870870871                        0.011739012                       0
+    Hand30   0.027284827                       0.725598935                        0.008651287                       0.007542147
+    Hand31   0                                 0.788298347                        0.006252791                       0
+    Hand32   0.001885607                       0.79698303                         0.009679447                       0.001005657
 
-Feature List (.txt) - Optional
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The feature list is a list of features that the user wants to map onto the alignment.  This will allow the user to color and collapse (vertically) regions of the alignment based on the feature. The feature list is a tab-delimited list where the columns are as follows: 
 
-1) Feature Type (allows for fill-down of colors)
-2) Feature Name (this is what is displayed on the alignment) 
-3) Alignment Range. If involves two stretches of nts, use a colon ":" delimiter.
-4) Hex Color (this is the color of the feature on the alignment)
+Example 2: Principal Coordinates File
++++++++++++++++++++++++++++++++++++++
 
-::
+The following is a weighted Unifrac principal coordinates file produced from QIIME. The first column contains the SampleID's which allow for correspondence to the paths of the SVG image, while the remaining columns consist of the values for each principal coordinate vector (PC 1-5) at each region of the hand.
 
-    stem Acceptor_stem 2-8:70-76 C2D9F0
-    stem D_stem 11-14:26-29 C2D9F0
-    loop D_loop 15-25 F0E9AA
-    stem Anti-Codon_stem 31-35:43-47 C2D9F0
-    loop Anti-Codon_loop 36-42 F0E9AA
-    loop Variable_loop 48-52 F0E9AA
-    stem T_stem 53-57:65-69 C2D9F0
-    loop T_loop 58-64 F0E9AA
-    loop CCA_tail 77-80 F0E9AA
-    loop loop0 0-1 F0E9AA
-    loop loop1 9-10 F0E9AA
-    loop loop2 30 F0E9AA
+:: 
+
+    pc vector number 1            2            3            4            5
+    Hand23            0.017674734  0.086331264  0.04473723   0.004003589  0.011900936
+    Hand24            0.03721532   0.114295555  0.026545593  0.031769352 -0.003194077
+    Hand25            0.02641303  -0.048601292  0.010150082 -0.027385228 -0.000666115
+    Hand26            0.052684939 -0.02055477  -0.016175269 -0.005657196  0.004005854
+    Hand27            0.084910157 -0.059976555 -0.009576943  0.019973765 -0.00334975
+    Hand28           -0.050264269 -0.020207926  0.050633036 -0.019990939  0.005436556
+    Hand29           -0.007034615  0.007534214 -0.01853336  -0.016552325 -0.038254278
+    Hand30            0.16615244   0.069815221  0.007417206  0.106767431 -0.044294094
+    Hand31            0.083281617  0.058672536 -0.01844925  -0.017083253  0.036211152
+    Hand32            0.071622503  0.027033638  0.043880704  0.028824731  0.010783767
