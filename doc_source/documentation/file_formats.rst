@@ -5,7 +5,7 @@ What Files Do I Need?
 =======================
 
 1. An SVG image of the site broken down into paths or regions.
-2. Tab-delimited text file, such as the tab-delimited files produced by QIIME (e.g., summarized taxa, alpha- and beta-diversity files, etc.).
+2. Tab-delimited text file, such as the tab-delimited files produced by QIIME [1]_ (e.g., summarized taxa, alpha- and beta-diversity files, etc.).
 
 
 SVG Image (.svg)
@@ -58,3 +58,9 @@ The following is a weighted Unifrac principal coordinates file produced from QII
     Hand30            0.16615244   0.069815221  0.007417206  0.106767431 -0.044294094
     Hand31            0.083281617  0.058672536 -0.01844925  -0.017083253  0.036211152
     Hand32            0.071622503  0.027033638  0.043880704  0.028824731  0.010783767
+    
+    
+References
+----------------------------- 
+
+.. [1] Caporaso, J.G., Kuczynski, J., Stombaugh, J., Bittinger, K., Bushman, F.D., Costello, E.K., Fierer, N., Pena, A.G., Goodrich, J.K., Gordon, J.I., Huttley, G.A., Kelley, S.T., Knights, D., Koenig, J.E., Ley, R.E., Lozupone, C.A., McDonald, D., Muegge, B.D., Pirrung, M., Reeder, J., Sevinsky, J.R., Turnbaugh, P.J., Walters, W.A., Widmann, J., Yatsunenko, T., Zaneveld, J. and Knight, R. (2010) QIIME allows analysis of high-throughput community sequencing data, Nat Methods, 7, 335-336.
