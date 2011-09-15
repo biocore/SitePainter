@@ -1,0 +1,37 @@
+SitePainter: A tool for exploring biogeographical patterns
+
+/*
+ * __author__ = "Antonio Gonzalez Pena"
+ * __copyright__ = "Copyright 2010, Site Painter"
+ * __credits__ = ["Antonio Gonzalez Pena"]
+ * __license__ = "GPL"
+ * __version__ = "0.9"
+ * __maintainer__ = "Antonio Gonzalez Pena"
+ * __email__ = "antoniog@colorado.edu"
+ * __status__ = "Release"
+ *
+ */
+
+The main components/files of SitePainter are:
+- README: 
+  This file
+
+- index.html: 
+  Main page for the tool. Regular users should only access this page.
+
+- metadata_info.txt: 
+  Description of the metadata file (info about the map)
+
+- site_painter/: 
+  Main libraries folder for SitePainter: 
+   - jQuery: http://jquery.com/
+   - jPicker: http://www.digitalmagicpro.com/jPicker/
+   - jeditable: http://www.appelsiini.net/projects/jeditable
+   - tablesorter: http://tablesorter.com/
+
+- Sfiler.jar, filer.class: 
+  Java executable files to read input files
+
+- svg-edit/: 
+  http://code.google.com/p/svg-edit/
+

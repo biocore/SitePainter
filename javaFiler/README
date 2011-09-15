@@ -1,0 +1,8 @@
+Date: Jul 29, 2010
+Created by: Antonio Gonzalez Pena
+
+This folder contains the main scripts to create and compile a Java applet 
+that reads and stores a text file.
+
+This can be used with jquery to read files without having to reload a web
+page.
