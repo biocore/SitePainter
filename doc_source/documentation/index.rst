@@ -17,6 +17,7 @@ These pages provide references on different features of SitePainter. If you're i
    file_formats
    edit_svg
    load_files
+   edit_elements
    formatting
    animation
 

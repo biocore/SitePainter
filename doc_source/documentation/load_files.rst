@@ -27,7 +27,7 @@ The user should notice that the filename is now listed above the "Browse" button
   :align: center
   :height: 400px
 
-Once loaded, the data will also be displayed in the right panel, where the ID's and values are displayed. The user should also notice that they have the ability to sort the columns or "Color elements" by the categories listed in the drop-down menu. 
+Once loaded, the data will also be displayed in the right panel under the "Meta." tab, where the ID's and values are displayed. The user should also notice that they have the ability to sort the columns or "Color elements" by the categories listed in the drop-down menu. 
 
 .. image:: ../images/load_metadata.png
   :align: center
