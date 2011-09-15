@@ -21,13 +21,13 @@ When loading a tab-delimited, the user should select the "Browse" button from th
   :align: center
   :height: 400px
   
-The user should notice that the filename is now listed above the "Browse" button, if the file was properly loaded.
+The user should notice that the filename is now listed above the "Browse" button. 
 
 .. image:: ../images/load_metadata.png
   :align: center
   :height: 400px
-  
-Now the user can process the metadata by clicking on the "Process" button.
+
+Once loaded, the data will also be displayed in the right panel, where the ID's and values are displayed. The user should also notice that they have the ability to sort the columns or "Color elements" by the categories listed in the drop-down menu. 
 
 .. image:: ../images/load_metadata.png
   :align: center

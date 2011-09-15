@@ -9,13 +9,15 @@
 ==========================
 SitePainter Documentation
 ==========================
-These pages provide references on different features of SitePainter. If you're instead looking for a tutorial to guide you through an analyses, you should refer to the `SitePainter tutorial <../tutorials/index.html?target=_blank>`_.
+These pages provide references on different features of SitePainter. If you're instead looking for a tutorial to guide you through an analyses, you should refer to the `SitePainter tutorial <../tutorials/index.html>`_.
 
 .. toctree::
    :maxdepth: 1
 
    file_formats
-   load_files
    edit_svg
+   load_files
+   formatting
+   animation
 
 
