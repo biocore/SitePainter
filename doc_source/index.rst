@@ -12,7 +12,7 @@ As microbial ecologists continue to take advantage of high-throughput analytical
 
 Link
 ====================
-Go to: `http://sitepainter.sf.net/sitepainter/index.html <http://sitepainter.sf.net/sitepainter/index.html>`_
+Go to: `http://sitepainter.sf.net/index.html <http://sitepainter.sf.net/index.html>`_
  
 Contact Us
 ===========
