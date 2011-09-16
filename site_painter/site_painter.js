@@ -22,6 +22,8 @@ $(document).ready(function() {
    var elements_order = new MyArray();
    var gradient_bins = 1000;
    var idInterval;
+   // Boolean to check if last event was reset color
+   var resetColorLastEvent = false;
    
    var elements = ''
        //  accept rect
@@ -185,7 +187,11 @@ $(document).ready(function() {
    // ***
    // Change no color paths
    $('#color_paths').change(function () {
-       ColorElements();
+       if (resetColorLastEvent) {
+          ColorAll();
+       } else {
+          ColorElements();
+       }
    });
     
    // ***
@@ -258,6 +264,19 @@ $(document).ready(function() {
    // ****
    // Click on the color all process button
    $('#color_all_process').click(function() {
+       ColorAll();
+   });
+   
+   // ====
+   // ====> General functionalities
+   // ====
+   
+   
+   // ****
+   // Color All Elements of the image based on color selected by the user
+   function ColorAll() {
+      resetColorLastEvent = true;
+      
       var all_elements = $("#svg_editor_iframe").contents().find(elements);
       all_elements.each(function (ind, value) {
          var index = svgSearchElement(value,'fill');
@@ -265,15 +284,14 @@ $(document).ready(function() {
             value.attributes[index].value = '#' + $.jPicker.List[2].color.active.val('hex');
          svgLineColoring(value);
       });
-   });
+    }
    
-   // ====
-   // ====> General functionalities
-   // ====
    
    // ****
-   // Color All Elements of the image
+   // Color All Elements of the image based on mapping file
    function ColorElements() {
+       resetColorLastEvent = false;
+       
        var data = metadata[$('#tab_metadata_selector').val()];
             var values = new Object();
             var max = -Infinity;
