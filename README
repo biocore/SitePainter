@@ -29,9 +29,14 @@ The main components/files of SitePainter are:
    - jeditable: http://www.appelsiini.net/projects/jeditable
    - tablesorter: http://tablesorter.com/
 
+- javaFiler/:
+  Contains the development and key files for the Sfiler.jar, see next line
+
 - Sfiler.jar, filer.class: 
   Java executable files to read input files
 
 - svg-edit/: 
   http://code.google.com/p/svg-edit/
 
+- images/:
+  Folder that has the images for this project
