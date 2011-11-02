@@ -9,3 +9,7 @@ Users can edit the element names by selecting the "Elem." tab in the right menu.
 .. image:: ../images/change_element_name.png
   :align: center
   :height: 400px
+  
+.. note::
+
+    The element names should only contain alphanumeric values [a-zA-Z0-9].

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Boulder ALE documentation build configuration file, created by
+# SitePainter documentation build configuration file, created by
 # sphinx-quickstart on Wed Nov  3 13:33:47 2010.
 #
 # This file is execfile()d with the current directory set to its containing dir.

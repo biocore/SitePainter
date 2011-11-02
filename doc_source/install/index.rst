@@ -1,5 +1,5 @@
 .. _doc_install:
-.. BoulderALE documentation master file, created by Antonio Gonzalez Pena
+.. SitePainter documentation master file, created by Antonio Gonzalez Pena
    sphinx-quickstart on Mon Jan 25 12:57:02 2010.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
@@ -12,7 +12,7 @@ Installing SitePainter
 
 SitePainter is a desktop application that runs in `Firefox <http://www.mozilla.org/firefox/>`_ > 3.6.0 but we recommend using the latest stable version. Download the `SitePainter <http://sourceforge.net/projects/sitepainter/files/releases/sitepainter_0.9.zip/download>`_ release package, unzip the downloaded file and open the index.html file inside the new created folder (make sure that you are using Firefox!).
 
-Dependencies required for all features of BoulderALE
+Dependencies required for all features of SitePainter
 -----------------------------------------------------
 
 * Firefox 3.6.0 (`link <http://www.mozilla.org/firefox/>`_)
@@ -28,12 +28,12 @@ To get the latest development version of SitePainter, you should check it out of
 
 	svn co https://sitepainter.svn.sourceforge.net/svnroot/sitepainter/ sitepainter
 
-svn users should periodically update BoulderALE by using the following command::
+svn users should periodically update SitePainter by using the following command::
 
 	svn update sitepainter
 
 
-Building The BoulderALE Documentation
+Building The SitePainter Documentation
 ----------------------------------------
 
 .. _build-SitePainter-docs:
