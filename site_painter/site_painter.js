@@ -121,7 +121,7 @@ $(document).ready(function() {
          
          for (m in metadata_headers) 
             table_html += '<tr><td id="animation_position_' + m + 
-                          '"><input type="checkbox" value="' + m + 
+                          '"><input type="checkbox" class="animation_option" value="' + m + 
                           '" name="' + metadata_headers[m] + '"></td>' +
                           '<td id="animation_' + m + '">' + metadata_headers[m] +
                           '</td></tr>';
@@ -129,6 +129,16 @@ $(document).ready(function() {
          table_html += '</tbody>' + '</table>'
 
          $("#tab_animate_table").html(table_html);
+         
+         // Note: Adding events to the created sections can only 
+         // occur after they have been added to the working html
+         
+         // Adding event to checkboxes
+         $(".animation_option").click(function() {
+              if ($('#actions_sum').attr('checked')) {
+                  Sum_Display();
+              }
+         });
          
          // Adding events to rows
          for (m in metadata_headers)
@@ -147,6 +157,19 @@ $(document).ready(function() {
        show_metadata_column(id,1);
        ColorElements();
    }
+   
+   // ****
+   // On selection actions_sum in the actions tab to sum/display taxa
+   $('#actions_sum').click(function() {
+      if (this.checked) {
+          $('#tab_animate_run').attr("disabled", "disabled");
+          $('#tab_animate_selector').attr("disabled", "disabled");
+          Sum_Display();
+      } else {
+          $('#tab_animate_run').removeAttr("disabled");
+          $('#tab_animate_selector').removeAttr("disabled");
+      }
+    });
    
    // ****
    // On click on the start animate button
@@ -270,7 +293,6 @@ $(document).ready(function() {
    // ====
    // ====> General functionalities
    // ====
-   
    
    // ****
    // Color All Elements of the image based on color selected by the user
@@ -552,6 +574,18 @@ $(document).ready(function() {
       // Getting the complement of the previous color
       var new_color = new $.jPicker.Color({ h: new_hue, s: color.val('s'), v: color.val('v') })
       return '#' + new_color.val('hex');
+   }
+   
+   // ****
+   // Getting selected values from the actions panel and coloring based on action
+   function Sum_Display() {
+       text = ""
+       $(".animation_option:checked").each(function () {
+           text += this.name
+       });
+       
+       alert (text);
+         
    }
 });
 
