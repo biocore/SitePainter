@@ -33,7 +33,6 @@ function make_multiple_color_gradient(color_list,nbins) {
        if (x==0) continue;
        full_gradient = full_gradient.concat(make_gradient(color_list[x-1],color_list[x],bins_per_gradient));
     }
-    
     return full_gradient;
 }
 
@@ -45,21 +44,25 @@ function make_gradient(color1,color2,nbins) {
      * - nbins: number of bins in color gradient.
      */
      
-     var r_step = (color2[0]-color1[0])/nbins;
-     var g_step = (color2[1]-color1[1])/nbins;
-     var b_step = (color2[2]-color1[2])/nbins;
-     var r = color1[0];
-     var g = color1[1];
-     var b = color1[2];
-     var color_list = new Array();
+    // To only create bins[1] and use color2 as bin[n]
+    nbins = nbins-1;
+    var r_step = (color2[0]-color1[0])/nbins;
+    var g_step = (color2[1]-color1[1])/nbins;
+    var b_step = (color2[2]-color1[2])/nbins;
+    var r = color1[0];
+    var g = color1[1];
+    var b = color1[2];
+    var color_list = new Array();
      
-     color_list[0] = [r,g,b];
-     for (var i=1;i<parseInt(nbins);i++) {
-        color_list[i] = [r+r_step,g+g_step,b+b_step];
-        r+=r_step;
-        g+=g_step;
-        b+=b_step;
-     }
+    color_list[0] = [r,g,b];
+    for (var i=1;i<parseInt(nbins);i++) {
+       color_list[i] = [r+r_step,g+g_step,b+b_step];
+       r+=r_step;
+       g+=g_step;
+       b+=b_step;
+    }
+    // Adding bin[n]
+    color_list[color_list.length] = [r+r_step,g+g_step,b+b_step]
      
     return color_list;
 }
