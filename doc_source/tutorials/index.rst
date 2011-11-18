@@ -40,7 +40,7 @@ Now that the image is loaded, we need to open the associated metadata by clickin
     :align: center
     :width: 500px
     
-The user should navigate to the tutorial files again and should select either the principal coordinate file (:file:`hand_weighted_unifrac_pc.txt`) or the summarized taxonomy file (:file:`hand_otu_filtered_sep7_L3.txt`), which were produced by QIIME. For this tutorial, we will select and open the :file:`hand_weighted_unifrac_pc.txt` file. 
+The user should navigate to the tutorial files again and should select either the principal coordinate file (:file:`hand_weighted_unifrac_pc.txt`) or the summarized taxonomy file (:file:`hand_otu_table_phylum.txt`), which were produced by QIIME. For this tutorial, we will select and open the :file:`hand_weighted_unifrac_pc.txt` file. 
 
 .. image:: ../images/open_hand_pc.png
     :align: center
@@ -155,7 +155,7 @@ Now that we have manipulated the colors of the image, we can reset the colors by
 Create Animation
 -----------------
 
-Since there several principal coordinate vectors, the user may want to create an animation, where each category is mapped onto the hand for a short amount of time, then it iterates to the next category. This allows the user to view the mapping of each category without having to select and map each category onto the image.  To generate an animation, the user should select the "Anim." tab in the right-menu. Once selected, we will leave the default timer as 5 seconds.
+Since there several principal coordinate vectors, the user may want to create an animation, where each category is mapped onto the hand for a short amount of time, then it iterates to the next category. This allows the user to view the mapping of each category without having to select and map each category onto the image.  To generate an animation, the user should select the "Actions" tab in the right-menu. Once selected, we will leave the default timer as 5 seconds.
 
 .. image:: ../images/anim_select_time.png
     :align: center
@@ -173,11 +173,17 @@ Now that we have selected the vectors we want to see mapped onto the hand, the u
     :align: center
     :height: 400px
     
+Finally, the user can choose to summarize the selected categories by clicking on the "Sum Selection" button.
+
+.. image:: ../images/sum_categories.png
+    :align: center
+    :height: 400px
+    
     
 Conclusion
 -----------
 
-This completes the tutorial, where we illustrate many of the functionalities currently available in SitePainter. I suggest the user repeats these steps, however; instead of opening the principal coordinates file, I suggest the user opens the summarized taxonomy file (:file:`hand_otu_filtered_sep7_L3.txt`) to visualize the Phylum-level abundance at each region of the hand.
+This completes the tutorial, where we illustrate many of the functionalities currently available in SitePainter. I suggest the user repeats these steps, however; instead of opening the principal coordinates file, I suggest the user opens the summarized taxonomy file (:file:`hand_otu_table_phylum.txt`) to visualize the Phylum-level abundance at each region of the hand.
 
 References
 ----------------------------- 

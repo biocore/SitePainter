@@ -1,10 +1,10 @@
 .. _edit_svg:
 
-============================
-Generate Animation
-============================
+===========================================
+Generate Animation or Summarize Categories
+===========================================
 
-To generate an animation, the user should first select the "Anim." tab in the right menu.  Once selected, the user will have the option of setting the time for each static image to appear (i.e. 5, 10, 15 or 20 seconds).
+To generate an animation, the user should first select the "Actions" tab in the right menu.  Once selected, the user will have the option of setting the time for each static image to appear (i.e. 5, 10, 15 or 20 seconds).
 
 .. image:: ../images/anim_select_time.png
     :align: center
@@ -19,5 +19,11 @@ The user should also select the categories to show within the animation, by chec
 Once the options have been selected the user should click on the "Run" button to animate the iteration over each of the selected categories.
 
 .. image:: ../images/anim_run.png
+    :align: center
+    :height: 400px
+    
+Alternatively, the user can choose to summarize the selected categories by clicking on the "Sum Selection" button.
+
+.. image:: ../images/sum_categories.png
     :align: center
     :height: 400px
