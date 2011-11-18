@@ -115,12 +115,8 @@
            <span id="tab_metadata_table"></span>
          </div>
          <div id="tab_animate">
-           <input type="checkbox" id="actions_sum" name="actions_sum"> Sum selected taxa
-           <br>
-           <br>
            Animation:
            <select id="tab_animate_selector">
-              <! TODO: try to use text field for time>
               <option value="1">5 sec</option>
               <option value="2">10 sec</option>
               <option value="3">15 sec</option>
@@ -129,7 +125,18 @@
            <br>
            <table border="0" id="tab_animate_btn_table">
              <tr>
-                <td><input value="Run" type="button" id="tab_animate_run"></td>
+                <td><input type="button" value="Run" id="tab_animate_run"></td>
+                <td><input type="button" value="Sum Selection" id="actions_sum" name="actions_sum"></td>
+             </tr>
+             <tr>
+                <td colspan="2">
+                   <select id="modify_selection">
+                      <option value="select">Selection ...</option>
+                      <option value="all">All</option>
+                      <option value="none">None</option>
+                      <option value="invert">Invert</option>
+                   </select>
+                </td>
              </tr>
            </table>
            <br>

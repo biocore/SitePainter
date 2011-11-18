@@ -121,7 +121,7 @@ $(document).ready(function() {
          
          for (m in metadata_headers) 
             table_html += '<tr><td id="animation_position_' + m + 
-                          '"><input type="checkbox" class="animation_option" value="' + m + 
+                          '"><input type="checkbox" id="animation_option" class="animation_option" value="' + m + 
                           '" name="' + metadata_headers[m] + '"></td>' +
                           '<td id="animation_' + m + '">' + metadata_headers[m] +
                           '</td></tr>';
@@ -132,14 +132,7 @@ $(document).ready(function() {
          
          // Note: Adding events to the created sections can only 
          // occur after they have been added to the working html
-         
-         // Adding event to checkboxes
-         $(".animation_option").click(function() {
-              if ($('#actions_sum').attr('checked')) {
-                  Sum_Display();
-              }
-         });
-         
+                  
          // Adding events to rows
          for (m in metadata_headers)
              AddEventForAnimation(m)
@@ -155,20 +148,13 @@ $(document).ready(function() {
    // Coloring of the animation
    function ColorAnimation(id) {
        show_metadata_column(id,1);
-       ColorElements();
+       ColorElements(metadata[$('#tab_metadata_selector').val()]);
    }
    
    // ****
    // On selection actions_sum in the actions tab to sum/display taxa
    $('#actions_sum').click(function() {
-      if (this.checked) {
-          $('#tab_animate_run').attr("disabled", "disabled");
-          $('#tab_animate_selector').attr("disabled", "disabled");
-          Sum_Display();
-      } else {
-          $('#tab_animate_run').removeAttr("disabled");
-          $('#tab_animate_selector').removeAttr("disabled");
-      }
+        Sum_Display();
     });
    
    // ****
@@ -213,7 +199,7 @@ $(document).ready(function() {
        if (resetColorLastEvent) {
           ColorAll();
        } else {
-          ColorElements();
+          ColorElements(metadata[$('#tab_metadata_selector').val()]);
        }
    });
     
@@ -280,7 +266,7 @@ $(document).ready(function() {
       if (metadata.length == 0 || metadata_headers.length == 0) {
          alert('You must load a metadata file first.');
       } else {
-         $("#tab_metadata_selector option:selected").each(function () { ColorElements(); });
+         $("#tab_metadata_selector option:selected").each(function () { ColorElements(metadata[$('#tab_metadata_selector').val()]); });
       }
    });
       
@@ -288,6 +274,25 @@ $(document).ready(function() {
    // Click on the color all process button
    $('#color_all_process').click(function() {
        ColorAll();
+   });
+         
+   // ****
+   // Modify selections from the animation tab
+   $('#modify_selection').change(function() {
+       selection = this.value
+       if (selection == "invert") {
+           $(".animation_option").each(function () {
+               $(this).attr('checked', !$(this).attr('checked'));
+           });
+       } else if (selection == "none") {
+           $(".animation_option").attr('checked', false);
+       } else if (selection == "all") {
+           $(".animation_option").attr('checked', true);
+       } else {
+          alert("There was an error, reload the webpage");
+       }
+   
+       $("#modify_selection option[value='select']").attr('selected', 'selected');
    });
    
    // ====
@@ -311,73 +316,72 @@ $(document).ready(function() {
    
    // ****
    // Color All Elements of the image based on mapping file
-   function ColorElements() {
+   function ColorElements(data) {
        resetColorLastEvent = false;
        
-       var data = metadata[$('#tab_metadata_selector').val()];
-            var values = new Object();
-            var max = -Infinity;
-            var min = Infinity;
-            var unique_values_arr = new Array();
-            var unique_colors_arr = new Array();
-            var color_base_1 = [ $.jPicker.List[0].color.active.val('r'),
-                                 $.jPicker.List[0].color.active.val('g'),
-                                 $.jPicker.List[0].color.active.val('b')];
-            var color_base_2 = [ $.jPicker.List[1].color.active.val('r'),
-                                 $.jPicker.List[1].color.active.val('g'),
-                                 $.jPicker.List[1].color.active.val('b')];
-            var image_elements_not_found = new Array();
-            
-            // Looping throught data
-            for (d in data) {
-               if (isNaN(data[d][1])) {
-                  image_elements_not_found.push(data[d][0]);
-               } else {
-                  values[data[d][0]] = data[d][1];
-                  if (max<data[d][1]) max = data[d][1];
-                  if (min>data[d][1]) min = data[d][1];
-                  if (unique_values_arr.indexOf(data[d][0]) == -1) unique_values_arr.push(data[d][1]);
-               }
-            }
-            
-            // Create bins and gradients
-            var bins = unique_values_arr.length; 
-            var color_gradient = make_multiple_color_gradient([color_base_1,color_base_2],bins);
-            var bin_indices = bin_data(unique_values_arr,bins);
-            for (i in unique_values_arr) {
-               var color_index = bin_indices[i];
-               unique_colors_arr[i] = rgb_to_html_color(color_gradient[color_index]);
-            }
-            
-            // Check for missing values from the image
-            $("#svg_editor_iframe").contents().find(elements).each(function (index, value) {
-                if (values[value.id]==null || values[value.id]==undefined)
-                     image_elements_not_found.push(value.id);
-            });
-            
-            // Start coloring
-            for (value in values) {
-               // Color element in svg-edit
-               $("#svg_editor_iframe").contents().find('#svgcontent #' + value).attr('opacity', '1');
-               $("#svg_editor_iframe").contents().find('#svgcontent #' + value).each(
-               function (ind, val) {
-                  var index = svgSearchElement(val,'fill');
-                  val.attributes[index].value = 
-                      unique_colors_arr[unique_values_arr.indexOf(values[value])];
-                  svgLineColoring(val);
-               });
-               // Color blank td in metadata table
-               $('#color_'+value).css('background-color', unique_colors_arr[unique_values_arr.indexOf(values[value])]);
-            }
-            
-            // Color/Hide paths not found
-            if ($('#color_paths').val()=='true') {
-                for (j in image_elements_not_found)
-                    $("#svg_editor_iframe").contents().find('#svgcontent #' + image_elements_not_found[j]).attr('opacity', '1');
-            } else {
-                for (j in image_elements_not_found)
-                    $("#svg_editor_iframe").contents().find('#svgcontent #' + image_elements_not_found[j]).attr('opacity', '0');
-            }
+       var values = new Object();
+       var max = -Infinity;
+       var min = Infinity;
+       var unique_values_arr = new Array();
+       var unique_colors_arr = new Array();
+       var color_base_1 = [ $.jPicker.List[0].color.active.val('r'),
+                        $.jPicker.List[0].color.active.val('g'),
+                        $.jPicker.List[0].color.active.val('b')];
+       var color_base_2 = [ $.jPicker.List[1].color.active.val('r'),
+                        $.jPicker.List[1].color.active.val('g'),
+                        $.jPicker.List[1].color.active.val('b')];
+       var image_elements_not_found = new Array();
+       
+       // Looping throught data
+       for (d in data) {
+          if (isNaN(data[d][1])) {
+             image_elements_not_found.push(data[d][0]);
+          } else {
+             values[data[d][0]] = data[d][1];
+             if (max<data[d][1]) max = data[d][1];
+             if (min>data[d][1]) min = data[d][1];
+             if (unique_values_arr.indexOf(data[d][0]) == -1) unique_values_arr.push(data[d][1]);
+          }
+       }
+        
+       // Create bins and gradients
+       var bins = unique_values_arr.length; 
+       var color_gradient = make_multiple_color_gradient([color_base_1,color_base_2],bins);
+       var bin_indices = bin_data(unique_values_arr,bins);
+       for (i in unique_values_arr) {
+          var color_index = bin_indices[i];
+          unique_colors_arr[i] = rgb_to_html_color(color_gradient[color_index]);
+       }
+       
+       // Check for missing values from the image
+       $("#svg_editor_iframe").contents().find(elements).each(function (index, value) {
+           if (values[value.id]==null || values[value.id]==undefined)
+                image_elements_not_found.push(value.id);
+       });
+       
+       // Start coloring
+       for (value in values) {
+          // Color element in svg-edit
+          $("#svg_editor_iframe").contents().find('#svgcontent #' + value).attr('opacity', '1');
+          $("#svg_editor_iframe").contents().find('#svgcontent #' + value).each(
+          function (ind, val) {
+             var index = svgSearchElement(val,'fill');
+             val.attributes[index].value = 
+                 unique_colors_arr[unique_values_arr.indexOf(values[value])];
+             svgLineColoring(val);
+          });
+          // Color blank td in metadata table
+          $('#color_'+value).css('background-color', unique_colors_arr[unique_values_arr.indexOf(values[value])]);
+       }
+       
+       // Color/Hide paths not found
+       if ($('#color_paths').val()=='true') {
+           for (j in image_elements_not_found)
+               $("#svg_editor_iframe").contents().find('#svgcontent #' + image_elements_not_found[j]).attr('opacity', '1');
+       } else {
+           for (j in image_elements_not_found)
+               $("#svg_editor_iframe").contents().find('#svgcontent #' + image_elements_not_found[j]).attr('opacity', '0');
+       }
    }
    
    
@@ -579,13 +583,25 @@ $(document).ready(function() {
    // ****
    // Getting selected values from the actions panel and coloring based on action
    function Sum_Display() {
-       text = ""
+       var data = new Object();
        $(".animation_option:checked").each(function () {
-           text += this.name
+           meta_len = metadata[this.value].length;
+           if (Object.keys(data).length  === 0) {
+                for (i=0; i<meta_len; i++) {
+                    data[metadata[this.value][i][0]] = metadata[this.value][i][1]
+                }
+           } else {
+                for (i=0; i<meta_len; i++) {
+                    data[metadata[this.value][i][0]] += metadata[this.value][i][1]
+                }
+           }
        });
        
-       alert (text);
-         
+       data_coloring = new Array();
+       for (k in data) {
+           data_coloring.push(new Array(k,data[k]))
+       }
+       ColorElements(data_coloring);
    }
 });
 
