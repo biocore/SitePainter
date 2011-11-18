@@ -12,7 +12,7 @@
   
   <link href="site_painter/jquery-ui.css" rel="stylesheet" type="text/css"/>
   <script src="site_painter/jquery-ui.min.js"></script>
-  
+    
   <link rel="stylesheet" href="site_painter/site_painter.css" type="text/css"/>
   <script type="text/javascript" src="site_painter/site_painter.js"></script>
    
@@ -21,6 +21,17 @@
   <script type="text/javascript" src="site_painter/tablesorter/jquery.tablesorter.js"></script>
   
   <script type="text/javascript" src="site_painter/color-gradients.js"></script>
+  
+  <script>
+     if ($.browser.mozilla) {
+         version = $.browser.version
+         if (version.split(".")[0]<4) {
+             alert("SitePainter only works correctly on Firefox >= to 4.0 and you are using: " + version);
+         }
+     } else {
+         alert("SitePainter only works in Firefox.")
+     }
+  </script>
   
   <title>SitePainter</title>
 </head>
