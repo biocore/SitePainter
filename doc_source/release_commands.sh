@@ -1,4 +1,4 @@
-version=0.9
+version=1.0
 
 echo "Creating ~/sitepainter_$version.zip"
 svn export ../ ~/sitepainter_$version

@@ -10,7 +10,7 @@
 Installing SitePainter
 ======================
 
-SitePainter is a desktop application that runs in `Firefox <http://www.mozilla.org/firefox/>`_ >= 4.0.0 but we recommend using the latest stable version. Download the `SitePainter <http://sourceforge.net/projects/sitepainter/files/releases/sitepainter_0.9.zip/download>`_ release package, unzip the downloaded file and open the index.html file inside the new created folder (make sure that you are using Firefox!).
+SitePainter is a desktop application that runs in `Firefox <http://www.mozilla.org/firefox/>`_ >= 4.0.0 but we recommend using the latest stable version. Download the `SitePainter <http://sourceforge.net/projects/sitepainter/files/releases/sitepainter_1.0.zip/download>`_ release package, unzip the downloaded file and open the index.html file inside the new created folder (make sure that you are using Firefox!).
 
 Dependencies required for all features of SitePainter
 -----------------------------------------------------
@@ -20,7 +20,7 @@ Dependencies required for all features of SitePainter
 
 Stable Pre-Release
 ^^^^^^^^^^^^^^^^^^
-Currently the most stable version of SitePainter is our 0.9 release, which you can download from `here <http://sourceforge.net/projects/sitepainter/files/releases/sitepainter_0.9.zip/download>`_.
+Currently the most stable version of SitePainter is our 1.0 release, which you can download from `here <http://sourceforge.net/projects/sitepainter/files/releases/sitepainter_1.0.zip/download>`_.
 
 Latest Development Version
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
