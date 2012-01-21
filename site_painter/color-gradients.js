@@ -98,11 +98,21 @@ function rgb_to_html_color(rgb_tuple) {
     /* convert an (R, G, B) tuple to #RRGGBB 
      *
      * - From Python Cookbook.
+     * 
+     * *** Due to a bug in the floor func in JS that transforms -1e13 to -1 had to change it
      */
      
-     var r = Math.floor(rgb_tuple[0]).toString(16);
-     var g = Math.floor(rgb_tuple[1]).toString(16);
-     var b = Math.floor(rgb_tuple[2]).toString(16);
+     rgb_tuple[0] = Math.floor(rgb_tuple[0])
+     rgb_tuple[1] = Math.floor(rgb_tuple[1])
+     rgb_tuple[2] = Math.floor(rgb_tuple[2])
+     
+     if (rgb_tuple[0]<0.0) rgb_tuple[0]=0
+     if (rgb_tuple[1]<0.0) rgb_tuple[1]=0
+     if (rgb_tuple[2]<0.0) rgb_tuple[2]=0
+     
+     var r = rgb_tuple[0].toString(16);
+     var g = rgb_tuple[1].toString(16);
+     var b = rgb_tuple[2].toString(16);
      
      if (r.length==1) r = '0' + r;
      if (g.length==1) g = '0' + g;
