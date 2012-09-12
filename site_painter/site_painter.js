@@ -81,6 +81,7 @@ $(document).ready(function() {
          
          for (i in textfile) {
             var row = textfile[i].split("\t");
+            row[0] = row[0].replace(/\./gi, '_');
             // Ignoring empty rows or comment lines
             if (row=="" || row[0][0]=='#' || row[0][0]=='%' || row[0]=='eigvals') continue;
             // Reading header
@@ -89,7 +90,7 @@ $(document).ready(function() {
                columns = row.length;
                for (var j = 0; j < columns-1; j++) {
                    metadata[j] = new Array(); 
-                   metadata_headers[j] = row[j+1];
+                   metadata_headers[j] = row[j+1].replace(/\./gi, '_');;
                }
             // Reading all other rows
             } else {
