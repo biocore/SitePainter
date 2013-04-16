@@ -32,8 +32,10 @@ $(document).ready(function() {
        elements += '#svgcontent circle,';
        //  accept ellipse
        elements += '#svgcontent ellipse,';
-       //  accept lines and polylines 
-       //elements += '#svgcontent line,#svgcontent polyline,';
+       //  accept lines
+       //elements += '#svgcontent line,
+       //  accept polylines 
+       elements += '#svgcontent polyline,';
        //  accept polygon and path
        elements += '#svgcontent polygon,#svgcontent path[d$="z"],#svgcontent path[d$="Z"]';
        
@@ -307,10 +309,12 @@ $(document).ready(function() {
       
       var all_elements = $("#svg_editor_iframe").contents().find(elements);
       all_elements.each(function (ind, value) {
-         var index = svgSearchElement(value,'fill');
-         if (index!=-1)
-            value.attributes[index].value = '#' + $.jPicker.List[2].color.active.val('hex');
-         svgLineColoring(value);
+         if (value.id.indexOf("tmp_name_")!=0) {
+             var index = svgSearchElement(value,'fill');
+             if (index!=-1)
+                value.attributes[index].value = '#' + $.jPicker.List[2].color.active.val('hex');
+             svgLineColoring(value);
+         }
       });
     }
    
@@ -390,6 +394,7 @@ $(document).ready(function() {
    // Show all elements of the image
    function ShowImageElements() {
       var all_elements = $("#svg_editor_iframe").contents().find(elements);
+      
       var tab_ele_txt = '<table id="element_table" class="tablesorter" cellspacing="1">' +
                          '<thead>' + '<tr>' + 
                          '<th class="header">Total elements:' + all_elements.length + '</th>' +

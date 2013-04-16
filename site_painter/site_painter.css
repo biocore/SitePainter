@@ -65,11 +65,11 @@ div {
 }
 
 #site_painter, #svg_editor_td {
-    height:650px;
+    height:800px;
 }
 
 #right_menu, #rightmenu_div {
-    height:700px;
+    height:900px;
     width:250px;
     overflow:auto;
     background: #FFFFFF;
