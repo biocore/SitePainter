@@ -1,0 +1,211 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>SitePainter Tutorial</title>
+    <link rel="stylesheet" href="../_static/agogo.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="" href="../index.html" />     
+<meta http-equiv="Content-Style-Type" content="text/css" />
+
+
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <div class="header">
+        <h1><a href="../index.html"></a></h1>
+        <div class="rel">
+        </div>
+       </div>
+    </div>
+
+
+<div style="background-color: white; text-align: center; padding: 0px;">
+<a href="../index.html"><img src="../_static/SitePainter.png" border="0" alt="sampledoc" height="100px"/></a>
+<br></div>
+
+
+
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="document">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="tutorial-index"></span><div class="section" id="sitepainter-tutorial">
+<span id="index-0"></span><h1>SitePainter Tutorial<a class="headerlink" href="#sitepainter-tutorial" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial illustrates the functional capabilities of SitePainter, where the user can load an SVG image along with associated metadata (in tab-delimited format). Once the data is loaded, the user can color the image by the metadata using a color gradient. For this tutorial, we will use an illustration, where we sampled regions of a human hand, followed by sequencing of the microbial communities associated to each region. For the analysis of this sequence dataset we analyzed the microbial diversity between regions (using principal coordinates analysis) and taxonomic summaries for the microbial communities present in each region of human hand, using the QIIME software package <a class="footnote-reference" href="#id2" id="id1">[1]</a>.</p>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>To begin this tutorial, you should first download and unzip the tutorial files <a class="reference external" href="http://sitepainter.sourceforge.net/files/SitePainter_example_files.zip">here</a>.  Next, you should open the SitePainter <tt class="file docutils literal"><span class="pre">index.html</span></tt>.</p>
+</div>
+<div class="section" id="load-files">
+<h2>Load Files<a class="headerlink" href="#load-files" title="Permalink to this headline">¶</a></h2>
+<p>First, you must open the svg image of the hand (<tt class="file docutils literal"><span class="pre">hand.svg</span></tt>) by clicking on the main menu and selecting &#8220;Open Image&#8221;, where you will need to navigate to the tutorial files on your computer.</p>
+<img alt="../_images/open_image.png" class="align-center" src="../_images/open_image.png" style="height: 300px;" />
+<p>Once you have selected the  <tt class="file docutils literal"><span class="pre">hand.svg</span></tt> image, you should &#8220;Open&#8221; the file.</p>
+<img alt="../_images/open_hand_svg.png" class="align-center" src="../_images/open_hand_svg.png" style="height: 300px;" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It should be noted that the &#8220;Import SVG&#8221; option does not behave properly so it is highly recommended that users use the &#8220;Open Image&#8221; option.</p>
+</div>
+<p>Now that the image is loaded, we need to open the associated metadata by clicking on the &#8220;Browse&#8221; button in the top-menu.</p>
+<img alt="../_images/click_browse_metadata.png" class="align-center" src="../_images/click_browse_metadata.png" style="width: 500px;" />
+<p>The user should navigate to the tutorial files again and should select either the principal coordinate file (<tt class="file docutils literal"><span class="pre">hand_weighted_unifrac_pc.txt</span></tt>) or the summarized taxonomy file (<tt class="file docutils literal"><span class="pre">hand_otu_table_phylum.txt</span></tt>), which were produced by QIIME. For this tutorial, we will select and open the <tt class="file docutils literal"><span class="pre">hand_weighted_unifrac_pc.txt</span></tt> file.</p>
+<img alt="../_images/open_hand_pc.png" class="align-center" src="../_images/open_hand_pc.png" style="height: 300px;" />
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It should be noted that user&#8217;s can also generate their own tab-delimited metadata files.</p>
+</div>
+<p>Once the user has opened the file, they should notice that the right-menu under the &#8220;Meta.&#8221; tab is now populated with the associated metadata, where they can sort the columns.</p>
+<img alt="../_images/sort_metadata.png" class="align-center" src="../_images/sort_metadata.png" style="height: 400px;" />
+</div>
+<div class="section" id="coloring-elements">
+<h2>Coloring elements<a class="headerlink" href="#coloring-elements" title="Permalink to this headline">¶</a></h2>
+<p>Now that the SVG and metadata have been loaded, we can color the principal coordinate axes onto the hand image by select a principal coordinate vector from the drop-down menu under the &#8220;Meta.&#8221; tab in the right menu.  To view the colors, the user should click on the &#8220;Color elements&#8221; button where they will see the values colored from low (blue) -&gt; high (red) values.</p>
+<img alt="../_images/color_elements_button.png" class="align-center" src="../_images/color_elements_button.png" style="height: 400px;" />
+<p>Once the button has been clicked, the user should observe the colors have been painted onto the hand, where the colors correspond to the values from principal coordinate vector 1.</p>
+<img alt="../_images/colored_hand_blue_red.png" class="align-center" src="../_images/colored_hand_blue_red.png" style="height: 400px;" />
+<p>The user should also notice that the colors have been added to each value in the right menu.</p>
+<img alt="../_images/category_colors_blue_red.png" class="align-center" src="../_images/category_colors_blue_red.png" style="height: 400px;" />
+</div>
+<div class="section" id="change-colors">
+<h2>Change Colors<a class="headerlink" href="#change-colors" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have painted the colors onto the hand image, we can also change the color gradient. To do this, the user should click on the blue color under the Low field in the top-menu.</p>
+<img alt="../_images/click_blue_low.png" class="align-center" src="../_images/click_blue_low.png" style="width: 500px;" />
+<p>Once selected, the user will see a color chart appear, where they can select another color, such as green.</p>
+<img alt="../_images/change_low_green.png" class="align-center" src="../_images/change_low_green.png" style="height: 200px;" />
+<p>Next, the user can click on the red color under the High field in the top-menu.</p>
+<img alt="../_images/click_red_high.png" class="align-center" src="../_images/click_red_high.png" style="width: 500px;" />
+<p>For the new high value, the user can select another color, such as yellow.</p>
+<img alt="../_images/change_high_yellow.png" class="align-center" src="../_images/change_high_yellow.png" style="height: 200px;" />
+<p>Once the colors have been set, the user can recolor the image using the new colors, by clicking on the &#8220;Color elements&#8221; button in the right-menu under the &#8220;Meta.&#8221; tab.</p>
+<img alt="../_images/update_colors_right_panel.png" class="align-center" src="../_images/update_colors_right_panel.png" style="height: 400px;" />
+<p>The user should also see the colors update on the hand image.</p>
+<img alt="../_images/hand_updated_colors.png" class="align-center" src="../_images/hand_updated_colors.png" style="height: 400px;" />
+</div>
+<div class="section" id="show-hide-lines-and-paths">
+<h2>Show/Hide Lines and Paths<a class="headerlink" href="#show-hide-lines-and-paths" title="Permalink to this headline">¶</a></h2>
+<p>The user also has the ability to show/hide lines by selecting an option under the Lines field in the top-menu.  By selecting &#8220;Hide&#8221; the user will see the lines around each region disappear.</p>
+<img alt="../_images/hide_lines.png" class="align-center" src="../_images/hide_lines.png" style="width: 500px;" />
+<p>The user should notice the lines disappear around each region of their image.</p>
+<img alt="../_images/hand_hidden_lines.png" class="align-center" src="../_images/hand_hidden_lines.png" style="height: 400px;" />
+<p>If the user wants to remove the paths within an image, they can select the &#8220;Hide&#8221; option under the Paths field in the top-menu.</p>
+<img alt="../_images/hide_paths.png" class="align-center" src="../_images/hide_paths.png" style="width: 500px;" />
+<p>The user should notice the paths disappear around each region of their image.</p>
+<img alt="../_images/hand_hidden_paths.png" class="align-center" src="../_images/hand_hidden_paths.png" style="height: 400px;" />
+</div>
+<div class="section" id="reset-image-colors">
+<h2>Reset Image Colors<a class="headerlink" href="#reset-image-colors" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have manipulated the colors of the image, we can reset the colors by clicking on the &#8220;Color All&#8221; button under the Reset color field in the top-menu.  Additionally, users can change the default reset color by clicking on the white box under the same field, which allows the user to select a new default color.</p>
+<img alt="../_images/reset_colors.png" class="align-center" src="../_images/reset_colors.png" style="width: 500px;" />
+</div>
+<div class="section" id="create-animation">
+<h2>Create Animation<a class="headerlink" href="#create-animation" title="Permalink to this headline">¶</a></h2>
+<p>Since there several principal coordinate vectors, the user may want to create an animation, where each category is mapped onto the hand for a short amount of time, then it iterates to the next category. This allows the user to view the mapping of each category without having to select and map each category onto the image.  To generate an animation, the user should select the &#8220;Actions&#8221; tab in the right-menu. Once selected, we will leave the default timer as 5 seconds.</p>
+<img alt="../_images/anim_select_time.png" class="align-center" src="../_images/anim_select_time.png" style="height: 400px;" />
+<p>Next, we will select a few of the principal coordinate vectors we would like to map onto the hand (i.e., 1,2,3,4,5,6 and 7).</p>
+<img alt="../_images/anim_select_categories.png" class="align-center" src="../_images/anim_select_categories.png" style="height: 400px;" />
+<p>Now that we have selected the vectors we want to see mapped onto the hand, the user should click on the &#8220;Run&#8221; button.</p>
+<img alt="../_images/anim_run.png" class="align-center" src="../_images/anim_run.png" style="height: 400px;" />
+<p>Finally, the user can choose to summarize the selected categories by clicking on the &#8220;Sum Selection&#8221; button.</p>
+<img alt="../_images/sum_categories.png" class="align-center" src="../_images/sum_categories.png" style="height: 400px;" />
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
+<p>This completes the tutorial, where we illustrate many of the functionalities currently available in SitePainter. I suggest the user repeats these steps, however; instead of opening the principal coordinates file, I suggest the user opens the summarized taxonomy file (<tt class="file docutils literal"><span class="pre">hand_otu_table_phylum.txt</span></tt>) to visualize the Phylum-level abundance at each region of the hand.</p>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Caporaso, J.G., Kuczynski, J., Stombaugh, J., Bittinger, K., Bushman, F.D., Costello, E.K., Fierer, N., Pena, A.G., Goodrich, J.K., Gordon, J.I., Huttley, G.A., Kelley, S.T., Knights, D., Koenig, J.E., Ley, R.E., Lozupone, C.A., McDonald, D., Muegge, B.D., Pirrung, M., Reeder, J., Sevinsky, J.R., Turnbaugh, P.J., Walters, W.A., Widmann, J., Yatsunenko, T., Zaneveld, J. and Knight, R. (2010) QIIME allows analysis of high-throughput community sequencing data, Nat Methods, 7, 335-336.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        </div>
+        <div class="sidebar">
+
+    
+          <h3>Table Of Contents</h3>
+          
+	<ul><li>Documentation<ul>
+	<li><a href="../install/index.html">Install</a><br /></li> 
+	<li><a href="../documentation/index.html">Documentation</a><br /></li>
+	 <li><a href="#">Tutorial</a><br /></li>
+	</ul></li></ul>
+
+
+          <h3 style="margin-top: 1.5em;">Search</h3>
+          <form class="search" action="../search.html" method="get">
+            <input type="text" name="q" size="18" />
+            <input type="submit" value="Go" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+          <p class="searchtip" style="font-size: 90%">
+            Enter search terms or a module, class or function name.
+          </p>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+<div style="text-align: center; padding: 0px;"><br>
+<br></div>
+
+    <div class="footer-wrapper">
+      <div class="footer">
+        <div class="left">
+        </div>
+
+        <div class="right">
+          
+    <div class="footer">
+        &copy; Copyright 2011, Antonio Gonzalez Pena.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+        </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-25797184-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+  </body>
+</html>
