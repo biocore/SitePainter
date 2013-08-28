@@ -26,11 +26,11 @@ Latest Development Version
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 To get the latest development version of SitePainter, you should check it out of our Sourceforge repository. While this code is subject to changes in interface and hasn't been as extensively tested as the release version, it will provide access to the latest and greatest SitePainter features. The official web documentation is likely to be out-of-date with respect to the development software. Check out the latest version of SitePainter using svn with the commands::
 
-	svn co https://sitepainter.svn.sourceforge.net/svnroot/sitepainter/ sitepainter
+	git clone git://github.com/qiime/SitePainter.git
 
-svn users should periodically update SitePainter by using the following command::
+git users should periodically update SitePainter by using the following command::
 
-	svn update sitepainter
+	git pull
 
 
 Building The SitePainter Documentation
