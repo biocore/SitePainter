@@ -10,7 +10,7 @@
 Installing SitePainter
 ======================
 
-SitePainter is a desktop application that runs in `Firefox <http://www.mozilla.org/firefox/>`_ >= 4.0.0 but we recommend using the latest stable version. Download the `SitePainter <http://sourceforge.net/projects/sitepainter/files/releases/sitepainter_1.1.zip/download>`_ release package, unzip the downloaded file and open the index.html file inside the new created folder (make sure that you are using Firefox!).
+SitePainter is a desktop application that runs in `Firefox <http://www.mozilla.org/firefox/>`_ >= 4.0.0 but we recommend using the latest stable version. Download the `SitePainter <https://github.com/biocore/SitePainter/archive/1.1.0.zip>`_ release package, unzip the downloaded file and open the index.html file inside the new created folder (make sure that you are using Firefox!).
 
 Dependencies required for all features of SitePainter
 -----------------------------------------------------
@@ -20,13 +20,13 @@ Dependencies required for all features of SitePainter
 
 Stable Pre-Release
 ^^^^^^^^^^^^^^^^^^
-Currently the most stable version of SitePainter is our 1.1 release, which you can download from `here <http://sourceforge.net/projects/sitepainter/files/releases/sitepainter_1.1.zip/download>`_.
+Currently the most stable version of SitePainter is our 1.1 release, which you can download from `here <https://github.com/biocore/SitePainter/archive/1.1.0.zip>`_.
 
 Latest Development Version
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-To get the latest development version of SitePainter, you should check it out of our Sourceforge repository. While this code is subject to changes in interface and hasn't been as extensively tested as the release version, it will provide access to the latest and greatest SitePainter features. The official web documentation is likely to be out-of-date with respect to the development software. Check out the latest version of SitePainter using svn with the commands::
+To get the latest development version of SitePainter, you should check it out of our GitHub repository. While this code is subject to changes in interface and hasn't been as extensively tested as the release version, it will provide access to the latest and greatest SitePainter features. The official web documentation is likely to be out-of-date with respect to the development software. Check out the latest version of SitePainter using git with the commands::
 
-	git clone git://github.com/qiime/SitePainter.git
+	git clone git://github.com/biocore/SitePainter.git
 
 git users should periodically update SitePainter by using the following command::
 
@@ -38,8 +38,8 @@ Building The SitePainter Documentation
 
 .. _build-SitePainter-docs:
 
-If you are using the svn version of SitePainter, you may want to build the documentation locally for access to the latest version. You can change to the ``sitepainter/doc_source`` directory and run::
+If you are using the development version of SitePainter, you may want to build the documentation locally for access to the latest version. You can change to the ``sitepainter/doc_source`` directory and run::
 
 	make html
 	
-We try to update the documentation as we update the code, but svn users may notice some discrepancies. After building the documentation, you can view it in a web browser by opening the file ``sitepainter/doc_source/_build/html/index.html``. You may want to bookmark that page for easy access. 
+We try to update the documentation as we update the code, but git users may notice some discrepancies. After building the documentation, you can view it in a web browser by opening the file ``sitepainter/doc_source/_build/html/index.html``. You may want to bookmark that page for easy access. 
