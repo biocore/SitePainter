@@ -25,7 +25,6 @@ The main components/files of SitePainter are:
    - jPicker: http://www.digitalmagicpro.com/jPicker/
    - jeditable: http://www.appelsiini.net/projects/jeditable
    - tablesorter: http://tablesorter.com/
-   - filereader: https://github.com/bgrins/filereader.js
 
 - svg-edit/: 
   http://code.google.com/p/svg-edit/
