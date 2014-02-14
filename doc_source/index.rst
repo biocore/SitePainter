@@ -16,5 +16,5 @@ Go to: `http://biocore.github.io/SitePainter/ <http://biocore.github.io/SitePain
  
 Contact Us
 ===========
-For any questions please contact `the QIIME forum <http://forum.qiime.org>`_. We aim to respond to e-mail questions within three to five working days.
+For any questions please contact `the QIIME forum <http://forum.qiime.org>`_. We aim to respond to e-mail questions within 1 business day.
 
