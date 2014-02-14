@@ -12,9 +12,9 @@ As microbial ecologists continue to take advantage of high-throughput analytical
 
 Link
 ====================
-Go to: `http://sitepainter.sf.net/index.html <http://sitepainter.sf.net/index.html>`_
+Go to: `http://biocore.github.io/SitePainter/ <http://biocore.github.io/SitePainter//>`_
  
 Contact Us
 ===========
-For any questions/suggestions please contact `SitePainter Support <antoniog@colorado.edu>`_. We aim to respond to e-mail questions within three to five working days. 
+For any questions please contact `the QIIME forum <http://forum.qiime.org>`_. We aim to respond to e-mail questions within 1 business day.
 

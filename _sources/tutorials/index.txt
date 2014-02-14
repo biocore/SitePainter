@@ -13,7 +13,7 @@ This tutorial illustrates the functional capabilities of SitePainter, where the 
 
 Getting Started
 --------------------
-To begin this tutorial, you should first download and unzip the tutorial files `here <http://sitepainter.sourceforge.net/files/SitePainter_example_files.zip>`_.  Next, you should open the SitePainter :file:`index.html`.
+To begin this tutorial, you should first download and unzip the tutorial files `here <ftp://thebeast.colorado.edu/pub/sitepainter-files/sitepainter_example_files.zip>`_.  Next, you should open the SitePainter :file:`index.html`.
 
 Load Files
 --------------
