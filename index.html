@@ -31,6 +31,13 @@
      } else {
          alert("SitePainter only works in Firefox.")
      }
+     
+     // Taken from http://www.html5rocks.com/en/tutorials/file/dndfiles/
+     if (window.File && window.FileReader && window.FileList && window.Blob) {
+        // Great success! All the File APIs are supported.
+     } else {
+        alert('The File APIs are not fully supported in this browser, try another one.');
+     }
   </script>
   
   <title>SitePainter</title>
@@ -49,10 +56,13 @@
         </td>
         <td width="5px">&nbsp;</td>
         <td id="load_meta_table_text">
-          Metadata:
-        </td>
-        <td id="meta_otu_table">
-          <applet id="meta_file" code="filer.class" archive="Sfiler.jar" width="200px" height="50px"></applet>
+          <table border="0" width="100%" height="100%">
+            <tr><td id="metadata_selection">Metadata: <b>Non selected</b></td></tr>
+            <tr><td>
+              <input type="button" value="Load metadata" onclick="$('#meta_file').click()">
+              <input type="file" id="meta_file" style="visibility: hidden">
+            </td></tr>
+          </table>
         </td>
         <td width="5px">&nbsp;</td>
         <td>
