@@ -16,6 +16,7 @@ $(document).ready(function() {
    // ****
    // Global Vars & Initialization
    var thisClass = this;
+   var metadata_fulltext = "";
    var metadata = new Array();
    var metadata_headers = new Array();
    var metadata_order = new MyArray();
@@ -68,20 +69,38 @@ $(document).ready(function() {
    // ====> Main funcionalities
    // ====
    
+   // Modified from http://blog.teamtreehouse.com/reading-files-using-the-html5-filereader-api
+   $("#meta_file").change(function (){
+       var fileInput = document.getElementById('meta_file');
+       var file = fileInput.files[0];
+       var textType = /text.*/;
+       
+       if (file.type.match(textType)) {
+           var reader = new FileReader();
+           reader.onload = function(e) {
+					metadata_fulltext = reader.result;
+					process_metadata_file();
+					$("#metadata_selection").html("Metadata: <b>" + $("#meta_file").val() + "</b>");
+		   }
+		   reader.readAsText(file);
+	   } else {
+		   alert("File not supported. Select another one.");
+		   return('');
+	   }
+   });
+   
+    
    // ****
    // Click on the metafile process button
-   ProcessFile = function () {
-      var textfile = $("#meta_file")[0].text;
-      if (textfile == "") {
-         alert("You need to select a meta file.");
-      } else {
-         metadata = new Array();
-         metadata_headers = new Array();
-         metadata_order = new MyArray();
-         textfile = textfile.split("\n");
-         var columns = 0;
-         
-         for (i in textfile) {
+   function process_metadata_file() {
+       var textfile = String(metadata_fulltext).split(/[\r\n]+/g);
+       var columns = 0;
+       
+       // init global variables
+       metadata = new Array();
+       metadata_headers = new Array();
+       metadata_order = new MyArray();
+       for (i in textfile) {
             var row = textfile[i].split("\t");
             row[0] = row[0].replace(/\./gi, '_');
             // Ignoring empty rows or comment lines
@@ -144,7 +163,7 @@ $(document).ready(function() {
             headers: { 0: { sorter: false } },
             sortList: [[1,0]]
          });
-      }
+      
    }
    
    // ****

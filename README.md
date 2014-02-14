@@ -19,9 +19,6 @@ The main components/files of SitePainter are:
 - index.html: 
   Main page for the tool. Regular users should only access this page.
 
-- metadata_info.txt: 
-  Description of the metadata file (info about the map)
-
 - site_painter/: 
   Main libraries folder for SitePainter: 
    - jQuery: http://jquery.com/
@@ -29,14 +26,21 @@ The main components/files of SitePainter are:
    - jeditable: http://www.appelsiini.net/projects/jeditable
    - tablesorter: http://tablesorter.com/
 
-- javaFiler/:
-  Contains the development and key files for the Sfiler.jar, see next line
-
-- Sfiler.jar, filer.class: 
-  Java executable files to read input files
-
 - svg-edit/: 
   http://code.google.com/p/svg-edit/
 
 - images/:
   Folder that has the images for this project
+
+
+Working with a metadata file
+
+The metadata file can contain any kind of numeric data in the following format:
+- Tab delimited text file
+- First row are headers (the options that will appear in the drop-down menu)
+- First column are sites/paths names (paths/elments in the svg image)
+- The rest should be valid numeric values
+
+Notes:
+- It accepts empty spaces that will be considered as NaNs and not used to color
+- Every line that starts either with "#", "%", "eigenval" (without ") will be consider comments
