@@ -2,6 +2,7 @@ SitePainter 1.1-dev
 =======================
 
 * Java is no longer a dependency
+* SitePainter is now released under the BSD license.
 
 
 SitePainter 1.1 - (2 Apr 2012)

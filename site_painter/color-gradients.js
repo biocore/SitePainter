@@ -4,8 +4,8 @@
  * __author__ = "Antonio Gonzalez Pena"
  * __copyright__ = "Copyright 2010, Site Painter"
  * __credits__ = ["Antonio Gonzalez Pena"]
- * __license__ = "GPL"
- * __version__ = "0.8-dev"
+ * __license__ = "BSD"
+ * __version__ = "1.1-dev"
  * __maintainer__ = "Antonio Gonzalez Pena"
  * __email__ = "antgonza@gmail.com"
  * __status__ = "Development"

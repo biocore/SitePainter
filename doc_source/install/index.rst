@@ -16,7 +16,6 @@ Dependencies required for all features of SitePainter
 -----------------------------------------------------
 
 * Firefox (`link <http://www.mozilla.org/firefox/>`_)
-* jre1.5.0 (`link <http://java.sun.com/javase/downloads/index.jsp>`_)
 
 Stable Pre-Release
 ^^^^^^^^^^^^^^^^^^
