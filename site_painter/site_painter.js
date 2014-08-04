@@ -433,7 +433,7 @@ $(document).ready(function() {
          // if not default to white
          var fill_index = svgSearchElement(value,'fill');
 
-         if (fill_index==-1) {
+         if (fill_index===-1) {
              fill_atrribute = document.createAttribute('fill')
              fill_atrribute.nodeValue = '#ffffff'
              value.attributes.setNamedItem(fill_atrribute)
