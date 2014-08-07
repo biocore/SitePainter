@@ -429,9 +429,15 @@ $(document).ready(function() {
              element_count+=1
          }
          
-         // Check if fill exists if not default to white
+         // Check if fill exists if not create a new one also check if fill has a value
+         // if not default to white
          var fill_index = svgSearchElement(value,'fill');
-         if (value.attributes[fill_index].value=='none' || value.attributes[fill_index].value=='') {
+
+         if (fill_index===-1) {
+             fill_atrribute = document.createAttribute('fill')
+             fill_atrribute.nodeValue = '#ffffff'
+             value.attributes.setNamedItem(fill_atrribute)
+         } else if (value.attributes[fill_index].value=='none' || value.attributes[fill_index].value=='') {
             value.attributes[fill_index].value='#ffffff';
          }
          
